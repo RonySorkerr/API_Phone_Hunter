@@ -48,6 +48,7 @@ const displayPhones = phones => {
         `;
         phoneContainer.appendChild(phoneCard);
     })
+    toggle(false);
 }
 
 // handle search button
@@ -55,8 +56,18 @@ const handleSearch = () => {
     const searchField = document.getElementById('searchField');
     const searchText = searchField.value;
     searchField.value = '';
-    console.log(searchText);
-    loadPhones(searchText)
+    // console.log(searchText);
+    toggle(true);
+    loadPhones(searchText);
 }
 
+const toggle = (isLoading) =>{
+    const loader = document.getElementById('loader')
+    if(isLoading){
+    loader.classList.remove('hidden')
+    }
+    else{
+        loader.classList.add('hidden');
+    }
+}
 // loadPhones();
