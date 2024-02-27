@@ -10,9 +10,16 @@
     <title>Phone Hunter</title>
 </head>
 
-<body>
-    <header></header>
+<body class="container mx-auto p-2 md:p-4 lg:p-6">
+    <header>
+        <h1 class="text-5xl text-center p-10 font-extrabold">Phone Hunter</h1>
+    </header>
     <main>
+        <!-- search -->
+        <div class="flex flex-col md:flex-row lg:flex-row items-center justify-center my-4">
+            <input id="searchField" type="text" placeholder="Search Your Phone" class="input input-bordered flex mx-auto w-full my-4" />
+            <button class="btn btn-outline btn-accent flex" onclick="handleSearch()">Search</button>
+        </div>
         <!-- card section -->
         <section>
             <div class="">
