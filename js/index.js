@@ -16,6 +16,17 @@ const loadPhones = async (searchText) => {
 const displayPhones = phones => {
     const phoneContainer = document.getElementById('phnsCont');
     phoneContainer.innerText = '';
+
+    // display show all button if there are more than 15 phones
+    const showallbtn = document.getElementById('shwallbtn')
+    if(phones.length > 15){
+        showallbtn.classList.remove('hidden')
+    }
+    else{
+        showallbtn.classList.add('hidden')
+    }
+
+    phones = phones.slice(0, 15);
     phones.forEach(phone => {
         // console.log(phone)
         /**
@@ -40,7 +51,7 @@ const displayPhones = phones => {
 }
 
 // handle search button
-const handleSearch = () =>{
+const handleSearch = () => {
     const searchField = document.getElementById('searchField');
     const searchText = searchField.value;
     searchField.value = '';

@@ -16,7 +16,7 @@
     </header>
     <main>
         <!-- search -->
-        <div class="flex flex-col md:flex-row lg:flex-row items-center justify-center my-4">
+        <div class="flex flex-col md:flex-row lg:flex-row items-center justify-center my-4 gap-4">
             <input id="searchField" type="text" placeholder="Search Your Phone" class="input input-bordered flex mx-auto w-full my-4" />
             <button class="btn btn-outline btn-accent flex" onclick="handleSearch()">Search</button>
         </div>
@@ -24,18 +24,10 @@
         <section>
             <div class="">
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-5" id="phnsCont">
-                    <!-- <div class="card bg-teal-400 shadow-xl">
-                        <figure class="px-10 pt-10">
-                          <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" class="rounded-xl" />
-                        </figure>
-                        <div class="card-body items-center text-center">
-                          <h2 class="card-title">Shoes!</h2>
-                          <p>If a dog chews shoes whose shoes does he choose?</p>
-                          <div class="card-actions">
-                            <button class="btn btn-primary">Buy Now</button>
-                          </div>
-                        </div>
-                      </div> -->
+                </div>
+                <!-- show all button -->
+                <div class="hidden my-4" id="shwallbtn">
+                    <button class="btn btn-outline btn-accent flex mx-auto" id="">Show All</button>
                 </div>
             </div>
         </section>
