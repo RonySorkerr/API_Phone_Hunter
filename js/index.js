@@ -42,7 +42,7 @@ const displayPhones = phones => {
                 <h2 class="card-title">${phone.phone_name}</h2>
                 <p>If a dog chews shoes whose shoes does he choose?</p>
             <div class="card-actions">
-                <button class="btn btn-primary">Buy Now</button>
+                <button onclick="shwDtls('${phone.slug}')" class="btn btn-primary mt-4">Show Details</button>
             </div>
             </div>
         `;
@@ -51,12 +51,18 @@ const displayPhones = phones => {
     toggle(false);
 }
 
+const shwDtls = async (id) => {
+    console.log('clicked'  , id)
+    const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
+    const data = await res.json();
+    console.log(data)
+}
+
 // handle search button
 const handleSearch = () => {
     const searchField = document.getElementById('searchField');
     const searchText = searchField.value;
     searchField.value = '';
-    // console.log(searchText);
     toggle(true);
     loadPhones(searchText);
 }
@@ -70,4 +76,11 @@ const toggle = (isLoading) =>{
         loader.classList.add('hidden');
     }
 }
+
+const showall = ()=>{
+
+}
+
+
+
 // loadPhones();
