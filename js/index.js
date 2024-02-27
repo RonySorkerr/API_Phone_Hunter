@@ -19,10 +19,10 @@ const displayPhones = phones => {
 
     // display show all button if there are more than 15 phones
     const showallbtn = document.getElementById('shwallbtn')
-    if(phones.length > 15){
+    if (phones.length > 15) {
         showallbtn.classList.remove('hidden')
     }
-    else{
+    else {
         showallbtn.classList.add('hidden')
     }
 
@@ -42,7 +42,7 @@ const displayPhones = phones => {
                 <h2 class="card-title">${phone.phone_name}</h2>
                 <p>If a dog chews shoes whose shoes does he choose?</p>
             <div class="card-actions">
-                <button onclick="shwDtls('${phone.slug}')" class="btn btn-primary mt-4">Show Details</button>
+                <button onclick="shwDtls('${phone.slug}') " class="btn btn-primary mt-4">Show Details</button>
             </div>
             </div>
         `;
@@ -52,10 +52,31 @@ const displayPhones = phones => {
 }
 
 const shwDtls = async (id) => {
-    console.log('clicked'  , id)
+    console.log('clicked', id)
     const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
     const data = await res.json();
-    console.log(data)
+    const phone = data.data;
+
+    showPhoneDetails(phone)
+}
+
+const showPhoneDetails = (phone) => {
+    console.log(phone)
+    const phoneName = document.getElementById('phone_Dtls_name');
+    phoneName.innerText = phone.name;
+
+    const showDetailsContainer = document.getElementById
+        ('showDtlsCntnr');
+    showDetailsContainer.innerHTML = `
+        <img src= "${phone.image}" alt= "">
+        <p>Storage : ${phone?.mainFeatures?.storage}</p>
+        <p>GPS : ${phone?.others?.GPS}</p>
+        <></>
+    `
+
+
+    show_details_modal.showModal()
+
 }
 
 // handle search button
@@ -67,20 +88,20 @@ const handleSearch = () => {
     loadPhones(searchText);
 }
 
-const toggle = (isLoading) =>{
+const toggle = (isLoading) => {
     const loader = document.getElementById('loader')
-    if(isLoading){
-    loader.classList.remove('hidden')
+    if (isLoading) {
+        loader.classList.remove('hidden')
     }
-    else{
+    else {
         loader.classList.add('hidden');
     }
 }
 
-const showall = ()=>{
+const showall = () => {
 
 }
 
 
 
-// loadPhones();
+loadPhones(13);
