@@ -7,9 +7,6 @@ const loadPhones = async (searchText) => {
     const data = await res.json();
     const phones = data.data;
     displayPhones(phones)
-    // console.log(phones)
-    // console.log(data.data[0].phone_name);
-
 }
 
 
@@ -55,7 +52,7 @@ const shwDtls = async (id) => {
     console.log('clicked', id)
     const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
     const data = await res.json();
-    const phone = data.data;
+    const phone = data.data;-
 
     showPhoneDetails(phone)
 }
